@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="ars.module.educate.model.Schedule" table="ARS_EDUCATE_SCHEDULE">
+		<id name="id" column="ID_" type="int">
+			<generator class="native"/>
+		</id>
+		<many-to-one name="course" column="COURSE_ID_" class="ars.module.educate.model.Course" not-null="true" fetch="join" lazy="false"/>
+		<many-to-one name="classes" column="CLASSES_ID_" class="ars.module.educate.model.Classes" not-null="true" fetch="join" lazy="false"/>
+		<many-to-one name="teacher" column="TEACHER_ID_" class="ars.module.educate.model.Teacher" not-null="true" fetch="join" lazy="false"/>
+		<property name="order" column="ORDER_" type="double"/>
+		<property name="status" column="STATUS_" type="int" not-null="true"/>
+		<property name="active" column="ACTIVE_" type="boolean" not-null="true"/>
+		<property name="remark" column="REMARK_" type="string" length="50"/>
+		<property name="creator" column="CREATOR_" type="string" length="50"/>
+		<property name="updater" column="UPDATER_" type="string" length="50"/>
+		<property name="process" column="PROCESS_" type="string" length="50"/>
+		<property name="dateJoined" column="DATE_JOINED_" type="timestamp" not-null="true"/>
+		<property name="dateUpdate" column="DATE_UPDATE_" type="timestamp"/>
+	</class>
+</hibernate-mapping>
