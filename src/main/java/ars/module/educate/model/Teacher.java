@@ -16,7 +16,8 @@ public class Teacher extends User {
 	private Title title; // 职称
 	private String position; // 职务
 	private Education education; // 学历
-	private Date armyDate; // 入伍日期
+	private Date entryDate; // 入职日期
+	private Date finishDate; // 离职日期
 
 	public Title getTitle() {
 		return title;
@@ -42,12 +43,20 @@ public class Teacher extends User {
 		this.education = education;
 	}
 
-	public Date getArmyDate() {
-		return armyDate;
+	public Date getEntryDate() {
+		return entryDate;
 	}
 
-	public void setArmyDate(Date armyDate) {
-		this.armyDate = armyDate;
+	public void setEntryDate(Date entryDate) {
+		this.entryDate = entryDate;
+	}
+
+	public Date getFinishDate() {
+		return finishDate;
+	}
+
+	public void setFinishDate(Date finishDate) {
+		this.finishDate = finishDate;
 	}
 
 	/**
