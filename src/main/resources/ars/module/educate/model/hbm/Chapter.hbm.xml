@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="ars.module.educate.model.Chapter" table="ARS_EDUCATE_CHAPTER">
+		<id name="id" column="ID_" type="int">
+			<generator class="native"/>
+		</id>
+		<property name="name" column="NAME_" type="string" length="50" not-null="true"/>
+		<many-to-one name="course" column="COURSE_ID_" class="ars.module.educate.model.Course" lazy="false"/>
+		<property name="content" column="CONTENT_" type="text"/>
+		<set name="attachments" fetch="select" lazy="false" table="ARS_EDUCATE_CHAPTER_ATTACHMENT">
+			<key column="CHAPTER_ID_" not-null="true"/>
+			<many-to-many class="ars.module.system.model.Attachment" column="ATTACHMENT_ID_"/>
+		</set>
+		<property name="key" column="KEY_" type="string" length="50" not-null="true"/>
+		<property name="level" column="LEVEL_" type="int" not-null="true"/>
+		<property name="leaf" column="LEAF_" type="boolean" not-null="true"/>
+		<property name="order" column="ORDER_" type="double"/>
+		<property name="status" column="STATUS_" type="int" not-null="true"/>
+		<property name="active" column="ACTIVE_" type="boolean" not-null="true"/>
+		<property name="remark" column="REMARK_" type="string" length="200"/>
+		<property name="creator" column="CREATOR_" type="string" length="50"/>
+		<property name="updater" column="UPDATER_" type="string" length="50"/>
+		<property name="process" column="PROCESS_" type="string" length="50"/>
+		<property name="dateJoined" column="DATE_JOINED_" type="timestamp" not-null="true"/>
+		<property name="dateUpdate" column="DATE_UPDATE_" type="timestamp"/>
+		<many-to-one name="parent" column="PARENT_ID_" class="ars.module.educate.model.Chapter" fetch="join" lazy="false"/>
+		<list name="children" inverse="true" lazy="true">
+			<key column="PARENT_ID_"/>
+			<index column="ORDER_"/>
+			<one-to-many class="ars.module.educate.model.Chapter"/>
+		</list>
+	</class>
+</hibernate-mapping>

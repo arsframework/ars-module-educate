@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<!-- Educate module configuration -->
+	
+	<!-- Class Repository -->
+	<bean class="ars.module.educate.repository.StandardClassesRepository"/>
+	
+	<!-- Profession Repository -->
+	<bean class="ars.module.educate.repository.StandardProfessionRepository"/>
+	
+	<!-- Student Repository -->
+	<bean class="ars.module.educate.repository.StandardStudentRepository"/>
+	
+	<!-- Teacher Repository -->
+	<bean class="ars.module.educate.repository.StandardTeacherRepository"/>
+	
+	<!-- Chapter Repository -->
+	<bean class="ars.module.educate.repository.StandardChapterRepository"/>
+	
+	<!-- Course Repository -->
+	<bean class="ars.module.educate.repository.StandardCourseRepository"/>
+	
+	<!-- Course Type Repository -->
+	<bean class="ars.module.educate.repository.StandardCourseTypeRepository"/>
+	
+	<!-- Schedule Repository -->
+	<bean class="ars.module.educate.repository.StandardScheduleRepository"/>
+	
+	<!-- Class Service -->
+	<bean class="ars.module.educate.service.StandardClassesService"/>
+	
+	<!-- Profession Service -->
+	<bean class="ars.module.educate.service.StandardProfessionService"/>
+	
+	<!-- Student Service -->
+	<bean class="ars.module.educate.service.StandardStudentService"/>
+	
+	<!-- Teacher Service -->
+	<bean class="ars.module.educate.service.StandardTeacherService"/>
+	
+	<!-- Chapter Service -->
+	<bean class="ars.module.educate.service.StandardChapterService"/>
+	
+	<!-- Course Service -->
+	<bean class="ars.module.educate.service.StandardCourseService"/>
+	
+	<!-- Course Type Service -->
+	<bean class="ars.module.educate.service.StandardCourseTypeService"/>
+	
+	<!-- Schedule Service -->
+	<bean class="ars.module.educate.service.StandardScheduleService"/>
+</beans>
