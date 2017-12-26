@@ -4,7 +4,7 @@
 
 	<groupId>com.arsframework</groupId>
 	<artifactId>ars-module-educate</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>ars-module-educate</name>
@@ -34,14 +34,14 @@
 		<dependency>
 			<groupId>com.arsframework</groupId>
 			<artifactId>ars-module-people</artifactId>
-			<version>1.0.0</version>
+			<version>1.1.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.arsframework/ars-module-system -->
 		<dependency>
 			<groupId>com.arsframework</groupId>
 			<artifactId>ars-module-system</artifactId>
-			<version>1.0.0</version>
+			<version>1.1.0</version>
 		</dependency>
 
 	</dependencies>
