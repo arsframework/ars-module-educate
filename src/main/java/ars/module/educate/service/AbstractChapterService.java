@@ -13,6 +13,7 @@ import ars.module.educate.model.Chapter;
 import ars.module.educate.service.ChapterService;
 import ars.database.repository.Query;
 import ars.database.repository.Repositories;
+import ars.database.repository.Repository;
 import ars.database.service.StandardGeneralService;
 
 /**
@@ -49,6 +50,34 @@ public abstract class AbstractChapterService<T extends Chapter> extends Standard
 			entity.setCourse(parent.getCourse());
 		} else if (!course.equals(parent.getCourse())) {
 			throw new ParameterInvalidException("course", "invalid");
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void updateObject(Requester requester, T object) {
+		T parent = (T) object.getParent();
+		Repository<T> repository = this.getRepository();
+		T old = repository.get(object.getId());
+		super.updateObject(requester, object);
+		if (old.getActive() != object.getActive()) {
+			if (object.getActive() == Boolean.TRUE) {
+				while (parent != null) {
+					if (parent.getActive() == Boolean.FALSE) {
+						parent.setActive(true);
+						repository.update(parent);
+					}
+					parent = (T) parent.getParent();
+				}
+			} else if (object.getActive() == Boolean.FALSE) {
+				List<T> chapters = repository.query().ne("id", object.getId()).eq("active", true)
+						.start("key", object.getKey()).list();
+				for (int i = 0; i < chapters.size(); i++) {
+					T chapter = chapters.get(i);
+					chapter.setActive(false);
+					repository.update(chapter);
+				}
+			}
 		}
 	}
 
