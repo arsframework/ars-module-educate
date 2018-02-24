@@ -9,8 +9,6 @@ import ars.invoke.request.Requester;
 import ars.module.educate.model.Chapter;
 import ars.database.service.TreeService;
 import ars.database.service.BasicService;
-import ars.database.service.ExportService;
-import ars.database.service.ImportService;
 
 /**
  * 课程章节业务操作接口
@@ -19,8 +17,7 @@ import ars.database.service.ImportService;
  * 
  */
 @Api("educate/chapter")
-public interface ChapterService<T extends Chapter>
-		extends BasicService<T>, ExportService<T>, TreeService<T>, ImportService<T> {
+public interface ChapterService<T extends Chapter> extends BasicService<T>, TreeService<T> {
 	/**
 	 * 以课程为根节点返回章节树
 	 * 

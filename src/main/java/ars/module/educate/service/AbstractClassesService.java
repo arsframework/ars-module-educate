@@ -41,7 +41,7 @@ public abstract class AbstractClassesService<T extends Classes> extends Standard
 
 	@Override
 	public List<SimpleTree> trees(Requester requester, Integer level, Map<String, Object> parameters) {
-		List<T> objects = this.getQuery(requester, parameters).list();
+		List<T> objects = this.getQuery(requester).custom(parameters).list();
 		if (objects.isEmpty()) {
 			return new ArrayList<SimpleTree>(0);
 		}

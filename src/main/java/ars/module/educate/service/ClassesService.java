@@ -9,8 +9,6 @@ import ars.invoke.local.Param;
 import ars.invoke.request.Requester;
 import ars.module.educate.model.Classes;
 import ars.database.service.BasicService;
-import ars.database.service.ExportService;
-import ars.database.service.ImportService;
 
 /**
  * 教学班级业务操作接口
@@ -19,7 +17,7 @@ import ars.database.service.ImportService;
  * 
  */
 @Api("educate/classes")
-public interface ClassesService<T extends Classes> extends BasicService<T>, ImportService<T>, ExportService<T> {
+public interface ClassesService<T extends Classes> extends BasicService<T> {
 	/**
 	 * 获取班级树（系部/专业/班级）
 	 * 

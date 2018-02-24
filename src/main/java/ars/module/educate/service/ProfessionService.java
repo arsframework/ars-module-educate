@@ -8,8 +8,6 @@ import ars.invoke.local.Api;
 import ars.invoke.local.Param;
 import ars.invoke.request.Requester;
 import ars.database.service.BasicService;
-import ars.database.service.ExportService;
-import ars.database.service.ImportService;
 import ars.module.educate.model.Profession;
 
 /**
@@ -19,7 +17,7 @@ import ars.module.educate.model.Profession;
  * 
  */
 @Api("educate/profession")
-public interface ProfessionService<T extends Profession> extends BasicService<T>, ImportService<T>, ExportService<T> {
+public interface ProfessionService<T extends Profession> extends BasicService<T> {
 	/**
 	 * 获取专业树列表（部门作为树枝）
 	 * 
