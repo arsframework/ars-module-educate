@@ -1,6 +1,5 @@
 package ars.module.educate.service;
 
-import java.util.Map;
 import java.util.List;
 
 import ars.util.SimpleTree;
@@ -25,12 +24,9 @@ public interface ProfessionService<T extends Profession> extends BasicService<T>
 	 *            请求对象
 	 * @param level
 	 *            开始层级
-	 * @param parameters
-	 *            请求参数
 	 * @return 教员树列表
 	 */
 	@Api("trees")
-	public List<SimpleTree> trees(Requester requester, @Param(name = "level") Integer level,
-			Map<String, Object> parameters);
+	public List<SimpleTree> trees(Requester requester, @Param(name = "level") Integer level);
 
 }

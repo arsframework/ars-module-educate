@@ -1,6 +1,5 @@
 package ars.module.educate.service;
 
-import java.util.Map;
 import java.util.List;
 
 import ars.util.SimpleTree;
@@ -23,11 +22,9 @@ public interface ChapterService<T extends Chapter> extends BasicService<T>, Tree
 	 * 
 	 * @param requester
 	 *            请求对象
-	 * @param parameters
-	 *            请求参数
 	 * @return 章节树列表
 	 */
 	@Api("ctrees")
-	public List<SimpleTree> ctrees(Requester requester, Map<String, Object> parameters);
+	public List<SimpleTree> ctrees(Requester requester);
 
 }

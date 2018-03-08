@@ -28,8 +28,8 @@ public abstract class AbstractProfessionService<T extends Profession> extends St
 		implements ProfessionService<T> {
 
 	@Override
-	public List<SimpleTree> trees(Requester requester, Integer level, Map<String, Object> parameters) {
-		List<T> objects = this.getQuery(requester).condition(parameters).list();
+	public List<SimpleTree> trees(Requester requester, Integer level) {
+		List<T> objects = this.getQuery(requester).custom(requester.getParameters()).list();
 		if (objects.isEmpty()) {
 			return new ArrayList<SimpleTree>(0);
 		}

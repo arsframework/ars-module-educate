@@ -30,8 +30,8 @@ public abstract class AbstractClassesService<T extends Classes> extends Standard
 		implements ClassesService<T> {
 
 	@Override
-	public void initObject(Requester requester, T entity, Map<String, Object> parameters) {
-		super.initObject(requester, entity, parameters);
+	public void initObject(Requester requester, T entity) {
+		super.initObject(requester, entity);
 		boolean exists = this.getRepository().query().eq("profession", entity.getProfession())
 				.eq("name", entity.getName()).ne("id", entity.getId()).count() > 0;
 		if (exists) {
@@ -40,8 +40,8 @@ public abstract class AbstractClassesService<T extends Classes> extends Standard
 	}
 
 	@Override
-	public List<SimpleTree> trees(Requester requester, Integer level, Map<String, Object> parameters) {
-		List<T> objects = this.getQuery(requester).custom(parameters).list();
+	public List<SimpleTree> trees(Requester requester, Integer level) {
+		List<T> objects = this.getQuery(requester).custom(requester.getParameters()).list();
 		if (objects.isEmpty()) {
 			return new ArrayList<SimpleTree>(0);
 		}

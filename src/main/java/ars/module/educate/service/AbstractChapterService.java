@@ -28,8 +28,8 @@ public abstract class AbstractChapterService<T extends Chapter> extends Standard
 		implements ChapterService<T> {
 
 	@Override
-	public void initObject(Requester requester, T entity, Map<String, Object> parameters) {
-		super.initObject(requester, entity, parameters);
+	public void initObject(Requester requester, T entity) {
+		super.initObject(requester, entity);
 		Course course = entity.getCourse();
 		Chapter parent = entity.getParent();
 		Query<T> query = this.getRepository().query().ne("id", entity.getId()).eq("course", course).eq("name",
@@ -82,8 +82,8 @@ public abstract class AbstractChapterService<T extends Chapter> extends Standard
 	}
 
 	@Override
-	public List<SimpleTree> ctrees(Requester requester, Map<String, Object> parameters) {
-		List<T> trees = this.trees(requester, parameters);
+	public List<SimpleTree> ctrees(Requester requester) {
+		List<T> trees = this.trees(requester);
 		List<SimpleTree> branchs = Repositories.getSimpleTrees(trees);
 		List<SimpleTree> roots = new ArrayList<SimpleTree>(trees.size());
 		Map<Course, SimpleTree> temp = new HashMap<Course, SimpleTree>(trees.size());
